@@ -1,7 +1,5 @@
 # Part1 and Part2 need to be used together in an environment. Part1 has the provider, so Part2 doesn't need it. Hence commenting.
 provider "aws" {
-  access_key = "AKIAZK42YNKEL4DGNXES" //saurabh@accurics.com
-  secret_key = "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"
   region = "ca-central-1" //Canada
 }
 
