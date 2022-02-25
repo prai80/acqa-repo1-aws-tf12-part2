@@ -43,6 +43,7 @@ resource "aws_customer_gateway" "acqa-test-cgateway1" {
     Name = format("%s-cgateway1", var.acqaPrefix)
     ACQAResource = "true"
     Owner = "AC-QA"
+    Test = "Drift"
   }
 }
 
