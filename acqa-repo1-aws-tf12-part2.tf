@@ -11,6 +11,9 @@ resource "aws_acm_certificate" "acqa-test-acm1" {
     Name         = format("%s-acm1", var.acqaPrefix)
     ACQAResource = "true"
     Owner        = "AC-QA"
+    "jet:metadata:owner"        = "Infosec"
+    "jet:metadata:dept"         = "Cloudsec"
+    "jet:metadata:feature"      = "Cloudquery"
   }
   lifecycle {
     create_before_destroy = true
@@ -25,6 +28,9 @@ resource "aws_ssm_parameter" "acqa-test-ssmparam3" {
     Name         = format("%s-ssmparam1", var.acqaPrefix)
     ACQAResource = "true"
     Owner        = "AC-QA"
+    "jet:metadata:owner"        = "Infosec"
+    "jet:metadata:dept"         = "Cloudsec"
+    "jet:metadata:feature"      = "Cloudquery"
   }
 }
 # Create customer gateway
@@ -37,6 +43,9 @@ resource "aws_customer_gateway" "acqa-test-cgateway1" {
     Name         = format("%s-cgateway1", var.acqaPrefix)
     ACQAResource = "true"
     Owner        = "AC-QA"
+    "jet:metadata:owner"        = "Infosec"
+    "jet:metadata:dept"         = "Cloudsec"
+    "jet:metadata:feature"      = "Cloudquery"
   }
 }
 #Transit Gateway
@@ -47,6 +56,9 @@ resource "aws_ec2_transit_gateway" "acqa-test-ec2-tgateway1" {
     Name         = format("%s-ec2-tgateway1", var.acqaPrefix)
     ACQAResource = "true"
     Owner        = "AC-QA"
+    "jet:metadata:owner"        = "Infosec"
+    "jet:metadata:dept"         = "Cloudsec"
+    "jet:metadata:feature"      = "Cloudquery"
   }
 }
 # Budget
@@ -84,6 +96,9 @@ resource "aws_cloud9_environment_ec2" "acqa-test-c9ev3" {
   tags = {
     ACQAResource = "true"
     Owner        = "AC-QA"
+    "jet:metadata:owner"        = "Infosec"
+    "jet:metadata:dept"         = "Cloudsec"
+    "jet:metadata:feature"      = "Cloudquery"
   }
 }
 # # RDS - Mysql
