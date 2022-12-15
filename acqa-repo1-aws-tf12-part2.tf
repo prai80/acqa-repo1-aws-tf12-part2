@@ -7,14 +7,7 @@ provider "aws" {
 resource "aws_acm_certificate" "acqa-test-acm1" {
   domain_name       = "acqatest.com"
   validation_method = "DNS"
-  tags = {
-    Name         = format("%s-acm1", var.acqaPrefix)
-    ACQAResource = "true"
-    Owner        = "AC-QA"
-    "jet:metadata:owner"        = "Infosec"
-    "jet:metadata:dept"         = "Cloudsec"
-    "jet:metadata:feature"      = "Cloudquery"
-  }
+  tags = var.tags
   lifecycle {
     create_before_destroy = true
   }
@@ -24,14 +17,7 @@ resource "aws_ssm_parameter" "acqa-test-ssmparam3" {
   name  = "acqa-test-ssmparam3"
   type  = "String"
   value = "bar"
-  tags = {
-    Name         = format("%s-ssmparam1", var.acqaPrefix)
-    ACQAResource = "true"
-    Owner        = "AC-QA"
-    "jet:metadata:owner"        = "Infosec"
-    "jet:metadata:dept"         = "Cloudsec"
-    "jet:metadata:feature"      = "Cloudquery"
-  }
+  tags = var.tags
 }
 # Create customer gateway
 resource "aws_customer_gateway" "acqa-test-cgateway1" {
@@ -39,27 +25,13 @@ resource "aws_customer_gateway" "acqa-test-cgateway1" {
   ip_address = "172.83.124.10"
   type       = "ipsec.1"
   # Tags
-  tags = {
-    Name         = format("%s-cgateway1", var.acqaPrefix)
-    ACQAResource = "true"
-    Owner        = "AC-QA"
-    "jet:metadata:owner"        = "Infosec"
-    "jet:metadata:dept"         = "Cloudsec"
-    "jet:metadata:feature"      = "Cloudquery"
-  }
+  tags = var.tags
 }
 #Transit Gateway
 resource "aws_ec2_transit_gateway" "acqa-test-ec2-tgateway1" {
   description = "acqa-test-ec2-tgateway1"
   # Tags
-  tags = {
-    Name         = format("%s-ec2-tgateway1", var.acqaPrefix)
-    ACQAResource = "true"
-    Owner        = "AC-QA"
-    "jet:metadata:owner"        = "Infosec"
-    "jet:metadata:dept"         = "Cloudsec"
-    "jet:metadata:feature"      = "Cloudquery"
-  }
+  tags = var.tags
 }
 # Budget
 resource "aws_budgets_budget" "acqa-test-budget3" {
@@ -93,13 +65,7 @@ resource "aws_cloud9_environment_ec2" "acqa-test-c9ev3" {
   instance_type = "t2.micro"
   name          = "acqa-test-c9ev3"
   # Tags
-  tags = {
-    ACQAResource = "true"
-    Owner        = "AC-QA"
-    "jet:metadata:owner"        = "Infosec"
-    "jet:metadata:dept"         = "Cloudsec"
-    "jet:metadata:feature"      = "Cloudquery"
-  }
+  tags = var.tags
 }
 # # RDS - Mysql
 # resource "aws_db_instance" "acqatestrdsmysqlone" {
