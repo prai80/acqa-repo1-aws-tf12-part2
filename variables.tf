@@ -2,11 +2,17 @@ variable "acqaPrefix" {
     type = string
     default = "acqa-test"
 }
-tags = {
-    "jet:metadata:owner"        = "Infosec"
-    "jet:metadata:dept"         = "Cloudsec"
-    "jet:metadata:feature"      = "Cloudquery"
+
+variable "tags" {
+  default     = {
+       "jet:metadata:owner"        = "Infosec"
+       "jet:metadata:dept"         = "Cloudsec"
+       "jet:metadata:feature"      = "Cloudquery"
+  }
+  description = "Additional resource tags"
+  type        = map(string)
 }
+
 
 # Commenting validation as BAT is using TF .12 and it is TF13 feature
 # variable "var1" {
